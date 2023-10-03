@@ -10,6 +10,8 @@ public final class VectorPhysics {
 
         final PolarVector polarVector1 = new PolarVector(100, "m", 15, "South of East");
 
+        Step.getInstance().addStep(polarVector + " + " + polarVector1);
+
         final PolarVector result = polarVector.add(polarVector1);
 
         Step.getInstance().addStep("Our result: " + result);
