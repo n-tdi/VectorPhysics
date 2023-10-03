@@ -2,6 +2,7 @@ package world.ntdi;
 
 import world.ntdi.math.PolarVector;
 import world.ntdi.math.SigFig;
+import world.ntdi.step.Step;
 
 public final class VectorPhysics {
     public static void main(String[] args) {
@@ -11,7 +12,6 @@ public final class VectorPhysics {
 
         final PolarVector result = polarVector.add(polarVector1);
 
-        System.out.println(result);
-
+        Step.getInstance().addStep("Our result: " + result);
     }
 }
