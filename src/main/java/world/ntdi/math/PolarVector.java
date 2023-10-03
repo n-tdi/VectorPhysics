@@ -11,8 +11,17 @@ public class PolarVector {
     private final double m_angle;
     private final String m_direction;
 
+    public PolarVector add(final PolarVector p_polarVectorToAdd) {
+        final AxialVector axialEquivalent = toAxial();
+        final AxialVector axialEquivalentToAdd = p_polarVectorToAdd.toAxial();
+
+        final AxialVector axialResult = axialEquivalent.add(axialEquivalentToAdd);
+
+        return axialResult.toPolar();
+    }
+
     public AxialVector toAxial() {
-        final SigFig sigFig = new SigFig(m_magnitude);
+        final SigFig sigFig = new SigFig(3);
 
         final String[] subDirection = m_direction.split(" ");
 

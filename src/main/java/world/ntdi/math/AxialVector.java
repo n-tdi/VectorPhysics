@@ -11,7 +11,7 @@ public class AxialVector {
     private final String m_unit;
 
     public PolarVector toPolar() {
-        final SigFig sigFig = new SigFig(m_x);
+        final SigFig sigFig = new SigFig(3);
 
         final double xAbs = Math.abs(m_x);
         final double yAbs = Math.abs(m_y);
@@ -42,6 +42,13 @@ public class AxialVector {
         final double roundedTan = sigFig.roundSigFigs(tan);
 
         return new PolarVector(magnitudeRounded, m_unit, roundedTan, direction);
+    }
+
+    public AxialVector add(final AxialVector p_axialVectorToAdd) {
+        final double newX = m_x + p_axialVectorToAdd.getX();
+        final double newY = m_y + p_axialVectorToAdd.getY();
+
+        return new AxialVector(newX, newY, m_unit);
     }
 
     @Override
