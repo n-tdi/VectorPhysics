@@ -17,19 +17,20 @@ public class SigFig {
             return 0.0;
         }
 
-        double orderOfMagnitude = Math.floor(Math.log10(Math.abs(p_value))) + 1;
+        final double orderOfMagnitude = Math.floor(Math.log10(Math.abs(p_value))) + 1;
 
         // Calculate the scale factor
-        double scale = Math.pow(10, m_amountOfSigFigs - orderOfMagnitude);
+        final double scale = Math.pow(10, m_amountOfSigFigs - orderOfMagnitude);
 
         // Adjust the sign after scaling
-        double scaledNum = p_value * scale;
+        final double scaledNum = p_value * scale;
 
         // Round to the nearest integer
-        long roundedValue = Math.round(scaledNum);
+        final long roundedValue = Math.round(scaledNum);
 
         // Divide by the scale factor to get the rounded result
-        double r = roundedValue / scale;
+        final double r = roundedValue / scale;
+
         return r;
     }
 }

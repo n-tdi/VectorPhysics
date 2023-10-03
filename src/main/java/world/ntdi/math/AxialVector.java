@@ -13,25 +13,25 @@ public class AxialVector {
     public PolarVector toPolar() {
         final SigFig sigFig = new SigFig(3);
 
-        final double xAbs = Math.abs(m_x);
-        final double yAbs = Math.abs(m_y);
+        final double xAbsRounded = sigFig.roundSigFigs(Math.abs(m_x));
+        final double yAbsRounded = sigFig.roundSigFigs(Math.abs(m_y));
 
         final double tan;
 
         final String direction;
 
-        final double magnitude = Math.sqrt((xAbs*xAbs) + (yAbs*yAbs));
+        final double magnitude = Math.sqrt((xAbsRounded*xAbsRounded) + (yAbsRounded * yAbsRounded));
         final double magnitudeRounded = sigFig.roundSigFigs(magnitude);
 
-        if (xAbs > yAbs) { // North or South of East or West
-            tan = Math.toDegrees(Math.atan(yAbs / xAbs));
+        if (xAbsRounded > yAbsRounded) { // North or South of East or West
+            tan = Math.toDegrees(Math.atan(yAbsRounded / xAbsRounded));
 
             final String firstHalf = m_y > 0 ? "North" : "South";
             final String lastHalf = m_x > 0 ? "East" : "West";
 
             direction = firstHalf + " of " + lastHalf;
         } else { // East or West of North or South
-            tan = Math.toDegrees(Math.atan(xAbs / yAbs));
+            tan = Math.toDegrees(Math.atan(xAbsRounded / yAbsRounded));
 
             final String firstHalf = m_x > 0 ? "East" : "West";
             final String lastHalf = m_y > 0 ? "North" : "South";
