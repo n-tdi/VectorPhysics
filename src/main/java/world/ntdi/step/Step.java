@@ -25,4 +25,10 @@ public class Step {
         m_stepList.add(formattedStep);
         System.out.println(formattedStep);
     }
+
+    public List<String> getStepList() {
+        final List<String> stepList = new ArrayList<>(m_stepList);
+        m_stepList.clear();
+        return stepList;
+    }
 }
