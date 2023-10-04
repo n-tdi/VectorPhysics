@@ -23,7 +23,6 @@ public class Step {
         final String formattedStep = currentStepNum + ". " + p_step;
 
         m_stepList.add(formattedStep);
-        System.out.println(formattedStep);
     }
 
     public List<String> getStepList() {

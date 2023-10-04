@@ -16,7 +16,7 @@ public class AdditionPanel extends JPanel {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
 
-        add(new JLabel("Addition Tab Content"), gridBagConstraints);
+        add(new JLabel("Add Two Vectors"), gridBagConstraints);
 
         final StepOutput stepOutput = new StepOutput();
 
