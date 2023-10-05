@@ -12,9 +12,9 @@ public class SpeedDistanceTime {
 
     public void solveForMissingValue() {
         if (m_speed != null && m_distance != null) {
-            m_time = m_speed / m_distance;
+            m_time = m_distance / m_speed;
         } else if (m_speed != null && m_time != null) {
-            m_distance = m_speed / m_time;
+            m_distance = m_speed * m_time;
         } else if (m_distance != null && m_time != null) {
             m_speed = m_distance / m_time;
         }
